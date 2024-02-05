@@ -1,13 +1,15 @@
 import './App.css';
 import React from "react";
-// import Userlocation from "./Userlocation";
-
+import Userlocation from "./components/Userlocation";
+import Searchlocation from "./components/Searchlocation";
 function App() {
   return (
     <div className="App">
       <>
-        <Userlocation/>
+     
         <p>Bharat Weather App</p>
+        <Searchlocation/>
+        <Userlocation/>
      </>
     </div>
   );
