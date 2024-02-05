@@ -1,4 +1,7 @@
-import React ,{useEffect}from 'react'
+import React ,{useEffect}from 'react';
+import "./Searchlocation.css";
+import  cloudsunny from "./cloudsunny.webp";
+import searchicon from "./search-icon.webp";
 
 const Searchlocation = () => {
     const apikey="2a9d131282265146853311eea52d66c6"
@@ -13,17 +16,24 @@ const Searchlocation = () => {
         let accessing_weather_fetchingurl=await fetch(accessing_weather);
         let accessing_weather_parseddata=await accessing_weather_fetchingurl.json();
         let accessing_weather_temperature=accessing_weather_parseddata.main.temp;
-        
-        console.log(accessing_weather_temperature);
+        let round_offtemperature_incelsius=Math.round(accessing_weather_temperature-273.15);
+        console.log(round_offtemperature_incelsius);
         // console.log(parseddata);
       };
       useEffect(() => {
         searchforlocation();
       });
   return (
-    <div>
-      
+<>
+    <div className='container'>
+        <div className='search-bar'>
+            <input type="text" className='cityinput' placeholder='Search' />
+        </div>
+        <div className="search-icon">
+            <img src={searchicon} alt="/" />
+        </div>
     </div>
+      </>
   )
 }
 

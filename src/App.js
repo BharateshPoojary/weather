@@ -6,8 +6,6 @@ function App() {
   return (
     <div className="App">
       <>
-     
-        <p>Bharat Weather App</p>
         <Searchlocation/>
         <Userlocation/>
      </>
