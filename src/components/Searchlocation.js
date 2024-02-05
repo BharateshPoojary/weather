@@ -30,7 +30,7 @@ const Searchlocation = () => {
             <input type="text" className='cityinput' placeholder='Search' />
         </div>
         <div className="search-icon">
-            <img src={searchicon} alt="/" />
+            <img  style={{height:"30px",width:"30px"}}src={searchicon} alt="/" />
         </div>
     </div>
       </>
