@@ -9,7 +9,7 @@ const Userlocation = (props) => {
   const [query, setQuery] = useState("");
   const [isvisible, setIsVisible] = useState(false);
   const apikey = "2a9d131282265146853311eea52d66c6";
-  // const locationasking=()=>{
+
   navigator.geolocation.getCurrentPosition(
     userlocationretrieved,
     userrejectedtoaccesslocation
@@ -61,10 +61,7 @@ const Userlocation = (props) => {
     console.log(converting_coordinates_to_cityname_parseddata);
     setCityName(converting_coordinates_to_cityname_data);
   }
-  // }
-  // useEffect=(()=>{
-  // locationasking();
-  // })
+
 
   const searchforlocation = async () => {
     setIsVisible(true);
@@ -103,9 +100,7 @@ const Userlocation = (props) => {
     console.log(converting_coordinates_to_cityname_parseddata);
     setsearchCityName(searchlocationcityname);
   };
-  // useEffect=(()=>{
-  //   searchforlocation();
-  // },[]);
+
 
   return (
     <>
