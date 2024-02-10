@@ -1,4 +1,4 @@
-.container{
+.container {
   width: 600px;
   height: 550px;
   margin: auto;
@@ -41,12 +41,11 @@
   margin-top: 20px;
   margin-left: 20px;
 }
-.search_icon{
-    height:50px;
-    width:50px;
-
+.search_icon {
+  height: 50px;
+  width: 50px;
 }
-.currentlocationbtn{
+.currentlocationbtn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,9 +56,37 @@
   cursor: pointer;
   margin-top: 20px;
   margin-left: 20px;
-  background-image: url('map-pin-point-icon.png');
+  background-image: url("map-pin-point-icon.png");
   background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
+}
+.humiditycontainer {
+  margin-left: 65px;
+  font-size: 40px;
+  color: white;
+  margin-top: 20px;
+}
+.humiditystatic {
+  display: flex;
+  justify-content: left;
+  padding-left: 10px;
+}
+.humiditydynamic {
+  display: flex;
+  justify-content: left;
+  padding-left: 45px;
+}
 
+.containerofverticalline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.verticalline {
+  margin-top: 160px;
+  position: absolute;
+  width: 3px;
+  height: 150px;
+  background-color: black;
 }
