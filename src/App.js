@@ -1,7 +1,7 @@
 import './App.css';
 import React from "react";
-import Userlocation from "./components/Userlocation";
-import "./components/Searchlocation.css"
+import Weatherforcast from "./components/Weatherforcast";
+import "./components/Weatherforcast.css"
 // import Searchlocation from "./components/Searchlocation";
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <>
           <div className="container">
           
-        <Userlocation latitude={19.076} longitude={72.8777}/>
+        <Weatherforcast latitude={19.076} longitude={72.8777}/>
       </div>
      </>
     </div>
