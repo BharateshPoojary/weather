@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Searchlocation.css";
 import humidityicon from "./humidity.jpg";
+import windicon from "./wind.png"
 import searchicon from "./search-icon.webp";
 const Userlocation = (props) => {
   const [temperature, setTemperature] = useState();
@@ -10,6 +11,7 @@ const Userlocation = (props) => {
   const [query, setQuery] = useState("");
   const [isvisible, setIsVisible] = useState(false);
   const [humidity, setHumidity] = useState();
+  const [windspeed, setWindspeed] = useState();
   const apikey = "2a9d131282265146853311eea52d66c6";
   function locationasking() {
     setIsVisible(false)
@@ -33,6 +35,8 @@ const Userlocation = (props) => {
       let accessing_weather_temperature = accessing_weather_parseddata.main.temp;
       let accessing_weather_humidity = accessing_weather_parseddata.main.humidity;
       setHumidity(accessing_weather_humidity);
+      let accessing_weather_windspeed = accessing_weather_parseddata.wind.speed;
+      setWindspeed(accessing_weather_windspeed);
       let roundofftemperature = Math.round(accessing_weather_temperature);
       setTemperature(roundofftemperature);
       const converting_coordinates_to_cityname = `http://api.openweathermap.org/geo/1.0/reverse?lat=${user_latitude}&lon=${user_longitude}&appid=${apikey}`;
@@ -57,6 +61,8 @@ const Userlocation = (props) => {
       let accessing_weather_temperature = accessing_weather_parseddata.main.temp;
       let accessing_weather_humidity = accessing_weather_parseddata.main.humidity;
       setHumidity(accessing_weather_humidity);
+      let accessing_weather_windspeed = accessing_weather_parseddata.wind.speed;
+      setWindspeed(accessing_weather_windspeed);
       let roundofftemperature = Math.round(accessing_weather_temperature);
       setTemperature(roundofftemperature);
       const converting_coordinates_to_cityname = `http://api.openweathermap.org/geo/1.0/reverse?lat=${props.latitude}&lon=${props.longitude}&appid=${apikey}`;
@@ -102,7 +108,8 @@ const Userlocation = (props) => {
     setsearchTemperature(searchlocationtemperature);
     let accessing_weather_humidity = accessing_weather_parseddata.main.humidity;
     setHumidity(accessing_weather_humidity);
-
+    let accessing_weather_windspeed = accessing_weather_parseddata.wind.speed;
+    setWindspeed(accessing_weather_windspeed);
     const converting_coordinates_to_cityname = `http://api.openweathermap.org/geo/1.0/reverse?lat=${converting_cityname_to_coordinates_latitude}&lon=${converting_cityname_to_coordinates_longitude}&appid=${apikey}`;
     let converting_coordinates_to_cityname_fetching_url = await fetch(
       converting_coordinates_to_cityname
@@ -162,17 +169,28 @@ const Userlocation = (props) => {
           </div>
         </>
       )}
-      <div className="containerofverticalline">
-        <div className="verticalline"></div>
-      </div>
-      <div className="humidityandwindspeedcontainer">
-        <img src={humidityicon} alt="humidityicon" style={{ position: "absolute", justifyContent: "left", display: "flex", height: "70px", width: "70px", marginTop: "25px" ,marginLeft:"15px"}} />
 
+
+      <div className="humidityandwindcontainer">
         <div className="humiditycontainer">
-          <div className="humiditystatic">Humidity</div>
-          <div className="humiditydynamic">{humidity}%</div>
+        <div className="humiditystatic">Humidity</div>
+        <div className="imganddynamiccontainer">
+        <img src={humidityicon} alt="humidityicon" style={{  height: "70px", width: "70px" }} />
+        
+        <div className="humiditydynamic">{humidity}%</div>
+        </div>
+        </div>
+        <div className="windcontainer">
+        <div className="windstatic">Wind Speed</div>
+<div className="imganddynamiccontainer">
+        <img src={windicon} alt="windicon" style={{  height: "70px", width: "70px"}} />
+        
+        <div className="winddynamic">{windspeed}km/h</div>
+        </div>
         </div>
       </div>
+
+
     </>
   );
 };

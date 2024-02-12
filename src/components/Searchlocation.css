@@ -61,11 +61,15 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.humiditycontainer {
-  margin-left: 65px;
+.humidityandwindcontainer {
+
   font-size: 40px;
   color: white;
   margin-top: 20px;
+  display: flex;
+}
+.humiditycontainer{
+  margin-left: 10px;
 }
 .humiditystatic {
   display: flex;
@@ -75,18 +79,19 @@
 .humiditydynamic {
   display: flex;
   justify-content: left;
-  padding-left: 45px;
+}
+.windcontainer{
+margin-left: 150px;
 }
 
-.containerofverticalline {
+.imganddynamiccontainer{
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
-.verticalline {
-  margin-top: 160px;
-  position: absolute;
-  width: 3px;
-  height: 150px;
-  background-color: black;
+.windstatic {
+  display: flex;
+  justify-content: right;
+}
+.winddynamic {
+  display: flex;
+  justify-content: right;
 }
