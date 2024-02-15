@@ -17,7 +17,6 @@ const Userlocation = (props) => {
   const [windspeed, setWindspeed] = useState();
   const [weathericon, setWeathericon] = useState();
   const [weatherdescription, setWeatherdescription] = useState();
-  const [searchweathericon, setsearchWeathericon] = useState();
   const [searchweatherdescription, setsearchWeatherdescription] = useState();
 
   const apikey = "2a9d131282265146853311eea52d66c6";
@@ -120,8 +119,6 @@ const Userlocation = (props) => {
       let accessing_search_weather_temperature = accessing_search_weather_parseddata.main.temp;
       let searchlocationtemperature = Math.round(accessing_search_weather_temperature);
       setsearchTemperature(searchlocationtemperature);
-      // let accessing_search_weather_icon = accessing_search_weather_parseddata.weather[0].icon;
-      // setsearchWeathericon(accessing_search_weather_icon);
       let accessing_search_weather_description = accessing_search_weather_parseddata.weather[0].description;
       setsearchWeatherdescription(accessing_search_weather_description)
       let accessing_search_weather_humidity = accessing_search_weather_parseddata.main.humidity;
@@ -141,10 +138,11 @@ const Userlocation = (props) => {
 
     }
     catch (error) {
+      setWeatherdescription("--")
       setsearchTemperature()
       setsearchCityName("---")
-      setHumidity()
-      setWindspeed()
+      setsearchHumidity()
+      setsearchWindspeed()
       setTimeout(() => {
         alert("Please enter valid city name")
       }, 200);
@@ -180,7 +178,6 @@ const Userlocation = (props) => {
         </div>
         <div className="content">
           {isvisible && (<img src={`https://openweathermap.org/img/wn/${weathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
-          {isvisible || (<img src={`https://openweathermap.org/img/wn/${searchweathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
           {isvisible && (<div className="description">{weatherdescription}</div>)}
           {isvisible || (<div className="description">{searchweatherdescription}</div>)}
           {isvisible && (
@@ -221,10 +218,10 @@ const Userlocation = (props) => {
               </div>
             </div>
           </div>
-          </div>
         </div>
-      </>
-      );
+      </div>
+    </>
+  );
 };
 
-      export default Userlocation;
+export default Userlocation;

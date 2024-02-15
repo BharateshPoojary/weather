@@ -9,6 +9,7 @@ function App() {
         <div className="container">
           <Weatherforcast latitude={19.076} longitude={72.8777} />
         </div>
+        
       </>
     </div>
   );
