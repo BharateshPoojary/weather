@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Weatherforcast.css";
 const Userlocation = (props) => {
 
@@ -17,7 +17,7 @@ const Userlocation = (props) => {
   const [searchweatherdescription, setsearchWeatherdescription] = useState();
 
   const apikey = "2a9d131282265146853311eea52d66c6";
-  function locationasking() {
+   function locationasking() {
     setIsVisible(true)
     navigator.geolocation.getCurrentPosition(
       userlocationretrieved,
@@ -58,6 +58,7 @@ const Userlocation = (props) => {
       console.log(converting_coordinates_to_cityname_parseddata);
       setCityName(converting_coordinates_to_cityname_data);
     }
+    
 
     async function userrejectedtoaccesslocation() {
 
@@ -89,6 +90,9 @@ const Userlocation = (props) => {
       setCityName(converting_coordinates_to_cityname_data);
     }
   }
+  useEffect(()=>{
+    locationasking();
+  },[])
   const searchforlocation = async () => {
     try {
       setIsVisible(false);
@@ -149,7 +153,7 @@ const Userlocation = (props) => {
 
   return (
     <>
-      <div onLoad={locationasking} >
+      {/* <div onLoad={locationasking} > */}
         <div className="search-container">
           <div className="search-bar">
             <input
@@ -208,7 +212,7 @@ const Userlocation = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 };
