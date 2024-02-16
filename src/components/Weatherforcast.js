@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./Weatherforcast.css";
-import humidityicon from "./humidity.jpg";
-import windicon from "./wind.png";
 const Userlocation = (props) => {
 
   const [temperature, setTemperature] = useState();
@@ -197,7 +195,6 @@ const Userlocation = (props) => {
             <div className="humiditycontainer">
               <div className="humiditystatic">Humidity</div>
               <div className="imganddynamiccontainer">
-                <img src={humidityicon} alt="humidityicon" style={{ height: "80px", width: "80px" }} />
                 {isvisible && (<div className="humiditydynamic">{humidity}%</div>)}
                 {isvisible || (<div className="humiditydynamic">{searchhumidity}%</div>)}
               </div>
@@ -205,7 +202,6 @@ const Userlocation = (props) => {
             <div className="windcontainer">
               <div className="windstatic">Wind Speed</div>
               <div className="imganddynamiccontainer">
-                <img src={windicon} alt="windicon" style={{ height: "80px", width: "80px" }} />
                 {isvisible && (<div className="winddynamic">{windspeed}km/h</div>)}
                 {isvisible || (<div className="winddynamic">{searchwindspeed}km/h</div>)}
               </div>

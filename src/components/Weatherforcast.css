@@ -122,9 +122,10 @@
 .humiditydynamic {
   display: flex;
   justify-content: left;
+  margin-left: 35%;
 }
 .windcontainer {
-  margin-left: 10px;
+  margin-left: 30px;
 }
 
 .imganddynamiccontainer {
@@ -137,6 +138,7 @@
 .winddynamic {
   display: flex;
   justify-content: right;
+  margin-left: 20%;
 }
 .description {
   font-size: 30px;
