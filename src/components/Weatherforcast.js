@@ -13,6 +13,7 @@ const Userlocation = (props) => {
   const [searchwindspeed, setsearchWindspeed] = useState();
   const [windspeed, setWindspeed] = useState();
   const [weathericon, setWeathericon] = useState();
+  const [searchweathericon, setsearchWeathericon] = useState();
   const [weatherdescription, setWeatherdescription] = useState();
   const [searchweatherdescription, setsearchWeatherdescription] = useState();
 
@@ -47,7 +48,7 @@ const Userlocation = (props) => {
       setWeatherdescription(accessing_weather_description)
       let roundofftemperature = Math.round(accessing_weather_temperature);
       setTemperature(roundofftemperature);
-      const converting_coordinates_to_cityname = `http://api.openweathermap.org/geo/1.0/reverse?lat=${user_latitude}&lon=${user_longitude}&appid=${apikey}`;
+      const converting_coordinates_to_cityname = `https://api.openweathermap.org/geo/1.0/reverse?lat=${user_latitude}&lon=${user_longitude}&appid=${apikey}`;
       let converting_coordinates_to_cityname_fetching_url = await fetch(
         converting_coordinates_to_cityname
       );
@@ -78,7 +79,7 @@ const Userlocation = (props) => {
       setWeatherdescription(accessing_weather_description)
       let roundofftemperature = Math.round(accessing_weather_temperature);
       setTemperature(roundofftemperature);
-      const converting_coordinates_to_cityname = `http://api.openweathermap.org/geo/1.0/reverse?lat=${props.latitude}&lon=${props.longitude}&appid=${apikey}`;
+      const converting_coordinates_to_cityname = `https://api.openweathermap.org/geo/1.0/reverse?lat=${props.latitude}&lon=${props.longitude}&appid=${apikey}`;
       let converting_coordinates_to_cityname_fetching_url = await fetch(
         converting_coordinates_to_cityname
       );
@@ -96,7 +97,7 @@ const Userlocation = (props) => {
   const searchforlocation = async () => {
     try {
       setIsVisible(false);
-      const converting_cityname_to_coordinates = `http://api.openweathermap.org/geo/1.0/direct?q=${query},&appid=${apikey}`;
+      const converting_cityname_to_coordinates = `https://api.openweathermap.org/geo/1.0/direct?q=${query},&appid=${apikey}`;
       let converting_cityname_to_coordinates_fetchingurl = await fetch(
         converting_cityname_to_coordinates
       );
@@ -121,12 +122,14 @@ const Userlocation = (props) => {
       let searchlocationtemperature = Math.round(accessing_search_weather_temperature);
       setsearchTemperature(searchlocationtemperature);
       let accessing_search_weather_description = accessing_search_weather_parseddata.weather[0].description;
-      setsearchWeatherdescription(accessing_search_weather_description)
+      setsearchWeatherdescription(accessing_search_weather_description);
+      let accessing_search_weather_icon=accessing_search_weather_parseddata.weather[0].icon;
+      setsearchWeathericon(accessing_search_weather_icon)
       let accessing_search_weather_humidity = accessing_search_weather_parseddata.main.humidity;
       setsearchHumidity(accessing_search_weather_humidity);
       let accessing_search_weather_windspeed = accessing_search_weather_parseddata.wind.speed;
       setsearchWindspeed(accessing_search_weather_windspeed);
-      const converting_coordinates_to_cityname = `http://api.openweathermap.org/geo/1.0/reverse?lat=${converting_cityname_to_coordinates_latitude}&lon=${converting_cityname_to_coordinates_longitude}&appid=${apikey}`;
+      const converting_coordinates_to_cityname = `https://api.openweathermap.org/geo/1.0/reverse?lat=${converting_cityname_to_coordinates_latitude}&lon=${converting_cityname_to_coordinates_longitude}&appid=${apikey}`;
       let converting_coordinates_to_cityname_fetching_url = await fetch(
         converting_coordinates_to_cityname
       );
@@ -173,6 +176,7 @@ const Userlocation = (props) => {
         </div>
         <div className="content">
           {isvisible && (<img src={`https://openweathermap.org/img/wn/${weathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
+          {isvisible || (<img src={`https://openweathermap.org/img/wn/${searchweathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
           {isvisible && (<div className="description">{weatherdescription}</div>)}
           {isvisible || (<div className="description">{searchweatherdescription}</div>)}
           {isvisible && (
