@@ -108,11 +108,9 @@
   margin-top: 5px;
   display: flex;
 }
-.content{
-  margin-top: 2%;
-}
+
 .humiditycontainer {
-  margin-left: 10px;
+  margin-right: 2%;
 }
 .humiditystatic {
   display: flex;
@@ -152,6 +150,7 @@
  
   .cityinput{
     padding: 7%;
+    margin-left: 1%;
   }
 .searchbtn{
   padding-left: 7%;
@@ -163,13 +162,20 @@
 }
 .search-container{
   margin-top: 25%;
+  margin-right: 1%;
 }
 .content{
-  margin-top: 20%;
+  margin-top: 15%;
 }
 .weathericon{
   height:17%;
   width:17%;
+}
+.humiditycontainer{
+  margin-right: 13%;
+}
+.search-bar{
+  margin-left: 1%;
 }
 }
 
