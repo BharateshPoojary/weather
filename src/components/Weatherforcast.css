@@ -148,5 +148,24 @@
   height:7%;
   width:7%;
 }
-
+@media screen and (max-width:700px) {
+ 
+  .cityinput{
+    padding: 7%;
+  }
+.searchbtn{
+  padding-left: 7%;
+  padding-right: 7%;
+}
+.currentlocationbtn{
+  padding-left: 7%;
+  padding-right: 7%;
+}
+.search-container{
+  margin-top: 25%;
+}
+.content{
+  margin-top: 20%;
+}
+}
 

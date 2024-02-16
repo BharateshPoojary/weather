@@ -135,18 +135,18 @@ const Userlocation = (props) => {
       );
       let converting_coordinates_to_cityname_parseddata =
         await converting_coordinates_to_cityname_fetching_url.json();
-      let searchlocationcityname =
-        converting_coordinates_to_cityname_parseddata[0].name;
+      let searchlocationcityname = converting_coordinates_to_cityname_parseddata[0].name;
       console.log(converting_coordinates_to_cityname_parseddata);
       setsearchCityName(searchlocationcityname);
 
     }
     catch (error) {
-      setWeatherdescription("--")
-      setsearchTemperature()
+      setsearchTemperature("--")
+      setsearchWeathericon()
+      setsearchWeatherdescription("---")
       setsearchCityName("---")
-      setsearchHumidity()
-      setsearchWindspeed()
+      setsearchHumidity("--")
+      setsearchWindspeed("--")
       setTimeout(() => {
         alert("Please enter valid city name")
       }, 200);
