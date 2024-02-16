@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./Weatherforcast.css";
 import humidityicon from "./humidity.jpg";
-import windicon from "./wind.png"
-import searchicon from "./search-icon.webp";
+import windicon from "./wind.png";
 const Userlocation = (props) => {
 
   const [temperature, setTemperature] = useState();
@@ -166,14 +165,8 @@ const Userlocation = (props) => {
               value={query}
             />
           </div>
-          <div className="div_of_search_icon">
-            <img
-              className="search_icon"
-              src={searchicon}
-              alt="Search"
-              onClick={searchforlocation}
-            />
-          </div>
+   
+          <button className="searchbtn" onClick={searchforlocation}></button>
           <button className="currentlocationbtn" onClick={locationasking}></button>
         </div>
         <div className="content">
@@ -182,7 +175,7 @@ const Userlocation = (props) => {
           {isvisible || (<div className="description">{searchweatherdescription}</div>)}
           {isvisible && (
             <>
-              <div style={{ marginBottom: "5px", marginTop: "5px", fontSize: "70px", color: "white" }}>
+              <div style={{ marginBottom: "5px",  fontSize: "40px", color: "white" }}>
                 <div className="temperature">
                   {temperature}°<span>C</span>
                 </div>
@@ -192,7 +185,7 @@ const Userlocation = (props) => {
           )}
           {isvisible || (
             <>
-              <div style={{ marginBottom: "5px", marginTop: "5px", fontSize: "70px", color: "white" }}>
+              <div style={{ marginBottom: "5px",  fontSize: "40px", color: "white" }}>
                 <div className="temperature">
                   {searchtemperature}°<span>C</span>
                 </div>
