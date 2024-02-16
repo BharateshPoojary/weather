@@ -1,4 +1,4 @@
-.App{
+.App {
   background-image: url("weather.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -11,7 +11,6 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
- 
 }
 
 .search-container {
@@ -25,8 +24,8 @@
   justify-content: center;
   padding-top: 3%;
   margin-left: 7%;
-  width:100%;
-  height:100%
+  width: 100%;
+  height: 100%;
 }
 
 .cityinput {
@@ -142,40 +141,38 @@
   font-size: 30px;
   color: white;
 }
-.weathericon{
-  height:7%;
-  width:7%;
+.weathericon {
+  height: 7%;
+  width: 7%;
 }
-@media screen and (max-width:700px) {
- 
-  .cityinput{
+@media screen and (max-width: 700px) {
+  .cityinput {
     padding: 7%;
     margin-left: 1%;
   }
-.searchbtn{
-  padding-left: 7%;
-  padding-right: 7%;
+  .searchbtn {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .currentlocationbtn {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  .search-container {
+    margin-top: 25%;
+    margin-right: 1%;
+  }
+  .content {
+    margin-top: 15%;
+  }
+  .weathericon {
+    height: 17%;
+    width: 17%;
+  }
+  .humiditycontainer {
+    margin-right: 13%;
+  }
+  .search-bar {
+    margin-left: 1%;
+  }
 }
-.currentlocationbtn{
-  padding-left: 7%;
-  padding-right: 7%;
-}
-.search-container{
-  margin-top: 25%;
-  margin-right: 1%;
-}
-.content{
-  margin-top: 15%;
-}
-.weathericon{
-  height:17%;
-  width:17%;
-}
-.humiditycontainer{
-  margin-right: 13%;
-}
-.search-bar{
-  margin-left: 1%;
-}
-}
-

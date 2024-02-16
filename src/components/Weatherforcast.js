@@ -18,7 +18,7 @@ const Userlocation = (props) => {
   const [searchweatherdescription, setsearchWeatherdescription] = useState();
 
   const apikey = "2a9d131282265146853311eea52d66c6";
-   function locationasking() {
+  function locationasking() {
     setIsVisible(true)
     navigator.geolocation.getCurrentPosition(
       userlocationretrieved,
@@ -59,7 +59,7 @@ const Userlocation = (props) => {
       console.log(converting_coordinates_to_cityname_parseddata);
       setCityName(converting_coordinates_to_cityname_data);
     }
-    
+
 
     async function userrejectedtoaccesslocation() {
 
@@ -91,9 +91,9 @@ const Userlocation = (props) => {
       setCityName(converting_coordinates_to_cityname_data);
     }
   }
-  useEffect(()=>{
+  useEffect(() => {
     locationasking();
-  },[])
+  }, [])
   const searchforlocation = async () => {
     try {
       setIsVisible(false);
@@ -123,7 +123,7 @@ const Userlocation = (props) => {
       setsearchTemperature(searchlocationtemperature);
       let accessing_search_weather_description = accessing_search_weather_parseddata.weather[0].description;
       setsearchWeatherdescription(accessing_search_weather_description);
-      let accessing_search_weather_icon=accessing_search_weather_parseddata.weather[0].icon;
+      let accessing_search_weather_icon = accessing_search_weather_parseddata.weather[0].icon;
       setsearchWeathericon(accessing_search_weather_icon)
       let accessing_search_weather_humidity = accessing_search_weather_parseddata.main.humidity;
       setsearchHumidity(accessing_search_weather_humidity);
@@ -156,67 +156,65 @@ const Userlocation = (props) => {
 
   return (
     <>
-      {/* <div onLoad={locationasking} > */}
-        <div className="search-container">
-          <div className="search-bar">
-            <input
-              type="search"
-              className="cityinput"
-              placeholder="Type a City"
-              autoFocus="on"
-              onChange={(e) => {
-                setQuery(e.target.value);
-              }}
-              value={query}
-            />
-          </div>
-   
-          <button className="searchbtn" onClick={searchforlocation}></button>
-          <button className="currentlocationbtn" onClick={locationasking}></button>
+      <div className="search-container">
+        <div className="search-bar">
+          <input
+            type="search"
+            className="cityinput"
+            placeholder="Type a City"
+            autoFocus="on"
+            onChange={(e) => {
+              setQuery(e.target.value);
+            }}
+            value={query}
+          />
         </div>
-        <div className="content">
-          {isvisible && (<img src={`https://openweathermap.org/img/wn/${weathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
-          {isvisible || (<img src={`https://openweathermap.org/img/wn/${searchweathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
-          {isvisible && (<div className="description">{weatherdescription}</div>)}
-          {isvisible || (<div className="description">{searchweatherdescription}</div>)}
-          {isvisible && (
-            <>
-              <div style={{ marginBottom: "5px",  fontSize: "40px", color: "white" }}>
-                <div className="temperature">
-                  {temperature}°<span>C</span>
-                </div>
-                <div className="cityname">{cityname}</div>
+
+        <button className="searchbtn" onClick={searchforlocation}></button>
+        <button className="currentlocationbtn" onClick={locationasking}></button>
+      </div>
+      <div className="content">
+        {isvisible && (<img src={`https://openweathermap.org/img/wn/${weathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
+        {isvisible || (<img src={`https://openweathermap.org/img/wn/${searchweathericon}@2x.png`} alt="weather icon" className="weathericon" />)}
+        {isvisible && (<div className="description">{weatherdescription}</div>)}
+        {isvisible || (<div className="description">{searchweatherdescription}</div>)}
+        {isvisible && (
+          <>
+            <div style={{ marginBottom: "5px", fontSize: "40px", color: "white" }}>
+              <div className="temperature">
+                {temperature}°<span>C</span>
               </div>
-            </>
-          )}
-          {isvisible || (
-            <>
-              <div style={{ marginBottom: "5px",  fontSize: "40px", color: "white" }}>
-                <div className="temperature">
-                  {searchtemperature}°<span>C</span>
-                </div>
-                <div className="cityname">{searchcityname}</div>
-              </div>
-            </>
-          )}
-          <div className="humidityandwindcontainer">
-            <div className="humiditycontainer">
-              <div className="humiditystatic">Humidity</div>
-              <div className="imganddynamiccontainer">
-                {isvisible && (<div className="humiditydynamic">{humidity}%</div>)}
-                {isvisible || (<div className="humiditydynamic">{searchhumidity}%</div>)}
-              </div>
+              <div className="cityname">{cityname}</div>
             </div>
-            <div className="windcontainer">
-              <div className="windstatic">Wind Speed</div>
-              <div className="imganddynamiccontainer">
-                {isvisible && (<div className="winddynamic">{windspeed}km/h</div>)}
-                {isvisible || (<div className="winddynamic">{searchwindspeed}km/h</div>)}
+          </>
+        )}
+        {isvisible || (
+          <>
+            <div style={{ marginBottom: "5px", fontSize: "40px", color: "white" }}>
+              <div className="temperature">
+                {searchtemperature}°<span>C</span>
               </div>
+              <div className="cityname">{searchcityname}</div>
+            </div>
+          </>
+        )}
+        <div className="humidityandwindcontainer">
+          <div className="humiditycontainer">
+            <div className="humiditystatic">Humidity</div>
+            <div className="imganddynamiccontainer">
+              {isvisible && (<div className="humiditydynamic">{humidity}%</div>)}
+              {isvisible || (<div className="humiditydynamic">{searchhumidity}%</div>)}
+            </div>
+          </div>
+          <div className="windcontainer">
+            <div className="windstatic">Wind Speed</div>
+            <div className="imganddynamiccontainer">
+              {isvisible && (<div className="winddynamic">{windspeed}km/h</div>)}
+              {isvisible || (<div className="winddynamic">{searchwindspeed}km/h</div>)}
             </div>
           </div>
         </div>
-      {/* </div> */}
+      </div>
     </>
   );
 };
